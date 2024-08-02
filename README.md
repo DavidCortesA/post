@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 📝 Next.js Blog App
 
-## Getting Started
+Este es una aplicación de blog simple construida con Next.js 13 y App Router, obteniendo datos de la API JSON Placeholder.
 
-First, run the development server:
+## ✨ Características
+
+- **Server-Side Rendering (SSR)**: Cada entrada del blog se renderiza en el servidor para mejorar el SEO y tiempos de carga iniciales más rápidos.
+- **Rutas Dinámicas**: La aplicación usa rutas dinámicas (`[slug]`) para mostrar entradas individuales del blog.
+- **Obtención de Datos**: Los datos se obtienen de la API JSON Placeholder utilizando `getServerSideProps`.
+- **Estilos**: La aplicación está estilizada con Tailwind CSS y NextUI para una apariencia moderna.
+
+## 🚀 Comenzando
+
+Clona el repositorio:
+
+```bash
+git clone https://github.com/davidcortesa/post.git
+cd post
+```
+
+Instala las dependencias:
+
+```bash
+npm install
+```
+
+Inicia el servidor de desarrollo:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver la aplicación.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 📁 Estructura del Proyecto
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```
+src
+├── app
+│   ├── components
+│   │   ├── PostItem.js
+│   │   └── PostList.js
+│   ├── data
+│   │   └── data.js
+│   ├── layout.js
+│   ├── page.js
+│   └── posts
+│       └── [slug]
+│           └── page.js
+├── providers.js
+└── styles
+    └── globals.css
+```
 
-## Learn More
+- **app**: Directorio principal de la aplicación para el App Router.
+- **components**: Componentes de UI reutilizables.
+  - **PostItem.js**: Muestra una sola entrada del blog.
+  - **PostList.js**: Renderiza una lista de entradas del blog.
+- **data**: Lógica de obtención de datos.
+  - **data.js**: Funciones para obtener datos de la API JSON Placeholder.
+- **layout.js**: Define la disposición general de la aplicación.
+- **page.js**: Componente de la página principal.
+- **posts/[slug]**: Ruta dinámica para entradas individuales del blog.
+  - **page.js**: Renderiza una sola entrada del blog basada en el parámetro `slug`.
+- **providers.js**: Proporciona contexto para la aplicación (e.g., `NextUIProvider`).
+- **styles**: Estilos CSS globales.
 
-To learn more about Next.js, take a look at the following resources:
+## 📡 Obtención de Datos
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+La aplicación utiliza `getServerSideProps` para obtener datos en el servidor para cada solicitud. Esto asegura que el contenido siempre esté actualizado y mejora el SEO.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 🎨 Estilos
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+La aplicación está estilizada con Tailwind CSS para CSS basado en utilidades y NextUI para componentes pre-construidos.
